@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace snake
+namespace Snake
 {
-    class Figure
-    {
-        protected List<Point> pList;
+	class Figure
+	{
+		protected List<Point> pList;
 
-        public void Draw()
-        {
-            foreach (Point p in pList)
-            {
-                p.Draw();
-            }
-        }
-    }
+		public virtual void Draw()
+		{
+			foreach ( Point p in pList )
+			{
+				p.Draw();
+			}
+		}
+	}
 }
