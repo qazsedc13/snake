@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace snake
 {
@@ -14,18 +13,16 @@ namespace snake
             Console.SetBufferSize(80, 25);
 
             //отрисовка рамочки
-            HorizontalLine upline = new HorizontalLine(0, 78, 0, '+');
-            HorizontalLine downline = new HorizontalLine(0, 78, 24, '+');
-            VerticalLine leftline = new VerticalLine(0, 24, 0, '+');
-            VerticalLine rightline = new VerticalLine(0, 24, 78, '+');
+            HorizontalLine upLine = new HorizontalLine( 0, 78, 0, '+' );
+			HorizontalLine downLine = new HorizontalLine( 0, 78, 24, '+' );
+			VerticalLine leftLine = new VerticalLine( 0, 24, 0, '+' );
+			VerticalLine rightLine = new VerticalLine( 0, 24, 78, '+' );
+			upLine.Draw();
+			downLine.Draw();
+			leftLine.Draw();
+			rightLine.Draw();
 
-            upline.Draw();
-            downline.Draw();
-            leftline.Draw();
-            rightline.Draw();
-
-            // отрисовка точек
-                        
+            // отрисовка точек                        
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Draw();
@@ -34,7 +31,7 @@ namespace snake
             Point food = foodCreator.CreateFood();
             food.Draw();
 
-            while(true)
+            while (true)
             {
                 if(snake.Eat(food))
                 {
@@ -48,14 +45,11 @@ namespace snake
 
                 Thread.Sleep(100);
             
-                if(Console.KeyAvailable)
+                if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
                     snake.HandleKey(key.Key);
-
-                }
-                Thread.Sleep(300);
-                snake.Move();
+                }                
             }                        
         }                       
     }
